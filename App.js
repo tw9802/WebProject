@@ -25,9 +25,8 @@ function BoardHead(){
     <div className='board-head'>
       <div>웹 응용 프로그래밍</div>
     </div>
-  )
+  );
 }
-
 
 function Boarddetail(){
   return(    
@@ -36,7 +35,7 @@ function Boarddetail(){
     <p>날짜</p>
     <p>상세내용</p>
   </div>
-  )
+  );
 }
 
 function BoardBox(){
@@ -44,7 +43,7 @@ function BoardBox(){
     <div className='board-box'>
       
     </div>
-  )
+  );
 }
 
 function BoardNav(){
@@ -52,7 +51,7 @@ function BoardNav(){
     <div className='board-nav'>
 
     </div>
-  )
+  );
 }
 
 function Button(){
@@ -68,13 +67,29 @@ function Button(){
     </div>
     
     </>
-  )
+  );
 }
 
 function Comment(){
   return(
     <div className='comment'>댓글</div>
-  )
+  );
 }
 
-export default App;
+ //TODO: 리액트 라우터 사용하여 URL Parameter로 포스트 아이디 받아오기
+const [selectedPostId, setSelectedPostId] = useState(null);
+
+
+return selectedPostId ? (
+  <Post id={selectedPostId} resetPostID={() => setSelectedPostID(null)} />
+) : (
+  <div className="App" style={{
+    display: 'flex',
+     flexDirection: 'column',
+  }}>
+     <div onClick={() => setSelectedPostID(1)}>게시글 1</div>
+   </div>   
+  );
+
+
+ export default App;
